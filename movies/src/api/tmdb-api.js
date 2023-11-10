@@ -24,11 +24,20 @@ export const getMovies = () => {
   
   export const getMovieImages = (id) => {
     return fetch(
-      `https://api.themoviedb.org/3/movie/${id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}`
+      `https://api.themoviedb.org/3/movie${id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}`
     )
       .then((res) => res.json())
       .then((json) => json.posters);
   };
+
+  export const getUpcomingMovies = (id) => {
+    return fetch(
+      `https://api.themoviedb.org/3/movie//upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+    )
+      .then((res) => res.json())
+      .then((json) => json.results);
+  };
+
   export const getMovieReviews = (id) => {
     return fetch(
       `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${process.env.REACT_APP_TMDB_KEY}`
@@ -39,3 +48,4 @@ export const getMovies = () => {
         return json.results;
       });
   };
+  
