@@ -80,4 +80,6 @@ export const getMovie = (args) => {
         return json.results;
       });
   };
+
+  
   
